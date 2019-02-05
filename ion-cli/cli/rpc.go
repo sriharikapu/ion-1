@@ -112,7 +112,9 @@ func getProof(eth *EthClient, transactionHash string) {
     )
 
     if err != nil {
-        panic(err)
+        fmt.Printf("Error: Failed to generate proof: %s\n", err)
+        return
+        //panic(err)
     }
 
     //fmt.Printf( "Path:           0x%x\n" +

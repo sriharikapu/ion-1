@@ -3,14 +3,20 @@
 package main
 
 import (
-    "fmt"
+  "os"
+  "fmt"
 	"github.com/clearmatics/ion/ion-cli/cli"
 )
 
 func main() {
-    // Launch the CLI
+  // If args provided just execute
+  if (len(os.Args) > 1) {
+    cli.Execute()
+  // else Launch the CLI
+  } else {
     printWelcome()
     cli.Launch()
+  }
 }
 
 func printWelcome() {

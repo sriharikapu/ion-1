@@ -2,6 +2,7 @@
 package cli
 
 import (
+  "os"
 	"context"
 	"fmt"
 	"math/big"
@@ -17,6 +18,16 @@ import (
 	"github.com/clearmatics/ion/ion-cli/config"
 	contract "github.com/clearmatics/ion/ion-cli/contracts"
 )
+
+func Execute() {
+  // usage: [rpc url] [Transaction Hash]
+  client, err := getClient(os.Args[1])
+  if (err != nil) {
+    fmt.Printf("Error: Failed to connect to client: %s", err)
+    return
+  }
+  getProof(client, os.Args[2])
+}
 
 // Launch - definition of commands and creates the interface
 func Launch() {
@@ -42,6 +53,7 @@ func Launch() {
                 c.Println("Usage: \tconnectToClient [rpc url] \n")
 			} else {
 			    c.Println("Connecting to client...\n")
+fmt.Printf("CLIENT: %s\n", c.Args[0])
 			    client, err := getClient(c.Args[0])
 			    if err != nil {
 			        c.Println("Could not connect to client.\n")
