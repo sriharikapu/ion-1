@@ -12,3 +12,4 @@ docs/deps-modules.dot
 *.log
 *.pdf
 *.egg-info/
+*.swp
