@@ -20,7 +20,6 @@ import (
 )
 
 func Execute() {
-  fmt.Printf("AAAAA")
   // usage: [rpc url] [Transaction Hash]
   client, err := getClient(os.Args[1])
   if (err != nil) {
