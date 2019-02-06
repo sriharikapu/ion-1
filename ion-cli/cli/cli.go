@@ -20,13 +20,28 @@ import (
 )
 
 func Execute() {
+  fmt.Printf("AAAAA")
   // usage: [rpc url] [Transaction Hash]
   client, err := getClient(os.Args[1])
   if (err != nil) {
     fmt.Printf("Error: Failed to connect to client: %s", err)
     return
   }
-  getProof(client, os.Args[2])
+  // second argument should specify which command
+  if (os.Args[2] == "getBlockByNumber_Clique") {
+    // third argument should specify the block number
+    block, _, _ := getBlockByNumber(client, os.Args[3])
+    signedBlock, unsignedBlock := RlpEncode(block)
+    // fourth argument should specify whether to return the signed or unsigned header
+    if (os.Args[4] == "signed") {
+      fmt.Printf("0x%x", signedBlock)
+    } else if (os.Args[4] == "unsigned") {
+      fmt.Printf("0x%x", unsignedBlock)
+    }
+  } else if (os.Args[2] == "getProof") {
+    // third argument should specify the tx hash
+    getProof(client, os.Args[3])
+  }
 }
 
 // Launch - definition of commands and creates the interface
