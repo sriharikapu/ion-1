@@ -5,7 +5,7 @@ package main
 import (
   "os"
   "fmt"
-	"github.com/clearmatics/ion/ion-cli/cli"
+	"github.com/rynobey/ion/ion-cli/cli"
 )
 
 func main() {
