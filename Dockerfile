@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 # Install a recent version of nodejs
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo bash - && sudo apt-get install -y nodejs=10.15.1-1nodesource1
 
-COPY . /go/src/github.com/clearmatics/ion
+COPY ./ion-cli /go/src/github.com/clearmatics/ion
 
 # Install the current compatible solc version
 RUN wget https://github.com/ethereum/solidity/releases/download/v0.4.25/solc-static-linux -O solc

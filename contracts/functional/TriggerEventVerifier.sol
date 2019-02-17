@@ -19,7 +19,7 @@ import "../EventVerifier.sol";
     checks against specific events.
 */
 contract TriggerEventVerifier is EventVerifier {
-    bytes32 eventSignature = keccak256("Triggered(address)");
+    bytes32 eventSignature = keccak256("Instructor(string,uint)");
 
     function verify(bytes20 _contractEmittedAddress, bytes _rlpReceipt, bytes20 _expectedAddress) public view returns (bool) {
         // Retrieve specific log for given event signature
