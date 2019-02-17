@@ -17,7 +17,7 @@ const web3 = new Web3(
 // Get/setup the test contract instance
 let Murdoch = require('../build/Murdoch.json')
 let abi = Murdoch.abi
-murdoch = new web3.eth.Contract(abi, '0x3747b299d0d8ef209e2a84720483630faaf732dd')
+murdoch = new web3.eth.Contract(abi, '0x7e472e7790b7631dee1c01d43ad605520023c7cb')
 murdoch.events.topUp({}, (error, event) => { })
     .on('data', async (event) => {
 
